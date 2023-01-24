@@ -1,20 +1,16 @@
-import React, { Suspense, useEffect } from "react";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import React, { Suspense  } from "react";
+import { Route, Routes  } from "react-router-dom";
 import "./App.css";
 
 import Loading from "./components/Loading/Loading";
 const Register = React.lazy(() => import("./pages/Register/Register"));
 const Login = React.lazy(() => import("./pages/Login/Login"));
+const BillRemover = React.lazy(() => import("./components/BillRemover/BillRemover"));
 // const Logout = React.lazy(() => import("./pages/Logout/Logout"));
 const Payment = React.lazy(() => import("./components/Payment/Payment"));
 
 const App = () => {
-  const navigate = useNavigate()
   const token = localStorage.getItem("token");
-  useEffect( ()=>  { 
-    navigate('/')
-    // eslint-disable-next-line
-  }, [token])
   return (
     <>
       <Routes>
@@ -37,6 +33,22 @@ const App = () => {
           element={
             <Suspense fallback={<Loading />}>
               <Register />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <Suspense fallback={<Loading />}>
+              <Login />
+            </Suspense>
+          }
+        />
+          <Route
+          path="/deleteBill"
+          element={
+            <Suspense fallback={<Loading />}>
+              <BillRemover />
             </Suspense>
           }
         />

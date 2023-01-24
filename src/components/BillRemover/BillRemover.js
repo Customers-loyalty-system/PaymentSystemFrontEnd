@@ -4,12 +4,13 @@ import { useRef } from "react";
 
 const Billremover = () => {
   const billNumberRef = useRef();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const removeBill = async () => { 
+  const removeBill = async () => {
     const token = localStorage.getItem("token");
     const billNumber = billNumberRef.current.value;
-    const response = await fetch(`${process.env.REACT_APP_API_REMOVE_BIll}?billNumber=${billNumber}`,
+    const response = await fetch(
+      `${process.env.REACT_APP_API_REMOVE_BIll}?billNumber=${billNumber}`,
       {
         method: "DELETE",
         headers: {
@@ -25,7 +26,7 @@ const Billremover = () => {
     } else {
       alert(json.messages);
     }
-  }
+  };
   return (
     <div className="container">
       <div className="row">
@@ -50,12 +51,14 @@ const Billremover = () => {
               />
             </div>
             <div className="row mt-5 align-items-center">
-              <input className="col-6 btn btn-primary" type="button"
-                  onClick={() => {
-                    navigate('/')
-                  }}
-                  value={"Go To add bill form"}
-                />
+              <input
+                className="col-6 btn btn-primary"
+                type="button"
+                onClick={() => {
+                  navigate("/");
+                }}
+                value={"Go To add bill form"}
+              />
 
               <div className="col-6">
                 <input
@@ -65,9 +68,14 @@ const Billremover = () => {
                   className="btn btn-danger w-100"
                 />
               </div>
-              <div className="col-12 mt-5">
-                  <Link to={`/login`}>Logout</Link>
-                </div>
+              <div
+                className="col-12 mt-5"
+                onClick={() => {
+                  localStorage.removeItem("token");
+                }}
+              >
+                <Link to={`/login`}>Logout</Link>
+              </div>
             </div>
           </div>
         </div>

@@ -16,7 +16,7 @@ const Register = () => {
     const email = emailref.current.value;
     const password = passwordref.current.value;
     const phone = phoneref.current.value;
-    console.log(name, email, password);
+   // console.log(name, email, password);
     const response = await fetch(`${process.env.REACT_APP_API_REGISTER}`, {
       method: "POST",
       body: JSON.stringify({

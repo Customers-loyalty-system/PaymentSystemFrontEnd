@@ -5,7 +5,7 @@ import { useRef } from "react";
 const Payment = () => {
   const amountref = useRef();
   const phoneref = useRef();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const addBill = async () => {
     const token = localStorage.getItem("token");
     const amount = amountref.current.value;
@@ -64,17 +64,17 @@ const Payment = () => {
             </div>
             <div className="row mt-5 align-items-center">
               <div className="col-7">
-              <input
+                <input
                   type="button"
                   onClick={() => {
-                    navigate('/deleteBill')
+                    navigate("/deleteBill");
                   }}
                   value={"Go to remove payment"}
                   className="btn btn-danger w-100"
                 />
               </div>
               <div className="col-5">
-              <input
+                <input
                   type="button"
                   onClick={() => {
                     addBill();
@@ -82,15 +82,20 @@ const Payment = () => {
                   value={"Add payment"}
                   className="btn btn-primary w-100"
                 />
-                 </div>
               </div>
-              <div className="col-5 mt-3">
-                <Link to={`/login`}>Logout</Link>
-              </div>
+            </div>
+            <div
+              className="col-5 mt-3"
+              onClick={() => {
+                localStorage.removeItem("token");
+              }}
+            >
+              <Link to={`/login`}>Logout</Link>
             </div>
           </div>
         </div>
       </div>
+    </div>
   );
 };
 

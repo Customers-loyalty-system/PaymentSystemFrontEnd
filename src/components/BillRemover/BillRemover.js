@@ -8,6 +8,8 @@ const Billremover = () => {
 
   const removeBill = async () => {
     const token = localStorage.getItem("token");
+    const accessToken = localStorage.getItem("accessToken");
+
     const billNumber = billNumberRef.current.value;
     const response = await fetch(
       `${process.env.REACT_APP_API_REMOVE_BIll}?billNumber=${billNumber}`,
@@ -16,6 +18,7 @@ const Billremover = () => {
         headers: {
           "Content-Type": "application/json",
           authorization: `Bearer ${token}`,
+          accessToken: `${accessToken}`
         },
       }
     );

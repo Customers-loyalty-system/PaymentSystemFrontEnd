@@ -10,12 +10,14 @@ const Payment = () => {
     const token = localStorage.getItem("token");
     const amount = amountref.current.value;
     const phone = phoneref.current.value;
+    const accessToken = localStorage.getItem('accessToken')
     const response = await fetch(`${process.env.REACT_APP_API_ADD_BILL}`, {
       method: "POST",
       body: JSON.stringify({ amount, phone }),
       headers: {
         "Content-Type": "application/json",
         authorization: `Bearer ${token}`,
+        accessToken: `${accessToken}`
       },
     });
     const json = await response.json();
@@ -88,6 +90,7 @@ const Payment = () => {
               className="col-5 mt-3"
               onClick={() => {
                 localStorage.removeItem("token");
+                localStorage.removeItem("accessToken");
               }}
             >
               <Link to={`/login`}>Logout</Link>

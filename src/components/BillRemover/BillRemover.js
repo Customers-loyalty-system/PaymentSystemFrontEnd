@@ -25,7 +25,7 @@ const Billremover = () => {
     const json = await response.json();
     if (json.success) {
       alert(json.messages);
-      billNumberRef.current.value = " ";
+      billNumberRef.current.value = "";
     } else {
       alert(json.messages);
     }

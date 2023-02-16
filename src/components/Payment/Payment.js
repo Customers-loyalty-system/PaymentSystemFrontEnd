@@ -10,19 +10,21 @@ const Payment = () => {
     const token = localStorage.getItem("token");
     const amount = amountref.current.value;
     const phoneNumber = phoneref.current.value;
-    const accessToken = localStorage.getItem('accessToken')
+    const accessToken = localStorage.getItem("accessToken");
     const response = await fetch(`${process.env.REACT_APP_API_ADD_BILL}`, {
       method: "POST",
       body: JSON.stringify({ amount, phoneNumber }),
       headers: {
         "Content-Type": "application/json",
         authorization: `Bearer ${token}`,
-        accessToken: `${accessToken}`
+        accessToken: `${accessToken}`,
       },
     });
     const json = await response.json();
     if (json.success) {
       alert(json.messages);
+      amountref.current.value = "";
+      phoneref.current.value = "";
     } else {
       alert(json.messages);
     }

@@ -18,7 +18,7 @@ const Billremover = () => {
         headers: {
           "Content-Type": "application/json",
           authorization: `Bearer ${token}`,
-          accessToken: `${accessToken}`
+          accessToken: `${accessToken}`,
         },
       }
     );
@@ -37,8 +37,13 @@ const Billremover = () => {
           className={`col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3`}
         >
           <div className={`${classes.billContainer} p-5 my-5`}>
-            <div className={`${classes.img} mb-4`}>
-              <img src="logo.svg" alt="logo" />
+            <div className={`${classes.img} mt-4`}>
+              <img
+                src="logo512.png"
+                width={"60px"}
+                height={"50px"}
+                alt="logo"
+              />
             </div>
             <h1 className="mb-4">Remove Bill</h1>
             <div className="form-field mb-3">

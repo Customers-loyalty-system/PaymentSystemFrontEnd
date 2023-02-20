@@ -16,7 +16,7 @@ const Register = () => {
     const email = emailref.current.value;
     const password = passwordref.current.value;
     const phone = phoneref.current.value;
-   // console.log(name, email, password);
+    // console.log(name, email, password);
     const response = await fetch(`${process.env.REACT_APP_API_REGISTER}`, {
       method: "POST",
       body: JSON.stringify({
@@ -40,8 +40,13 @@ const Register = () => {
           className={`col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3`}
         >
           <div className={`${classes.registerContiner} p-5 my-5`}>
-            <div className={`${classes.img} mb-4`}>
-              <img src="logo.svg" alt="logo" />
+            <div className={`${classes.img} mt-4`}>
+              <img
+                src="logo512.png"
+                width={"60px"}
+                height={"50px"}
+                alt="logo"
+              />
             </div>
             <h1 className="mb-4">Create Account</h1>
             <div className="form-field mb-3">
@@ -95,7 +100,7 @@ const Register = () => {
 
             <div className="row mt-5 align-items-center">
               <div className="col-5">
-                <Link to={`/`}>Login</Link>
+                <Link to={`/login`}>Login</Link>
               </div>
               <div className="col-7">
                 <button

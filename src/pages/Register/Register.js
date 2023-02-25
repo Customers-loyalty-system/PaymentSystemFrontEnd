@@ -100,7 +100,7 @@ const Register = () => {
 
             <div className="row mt-5 align-items-center">
               <div className="col-5">
-                <Link to={`/login`}>Login</Link>
+                <Link to={`/login `}>Login</Link>
               </div>
               <div className="col-7">
                 <button
